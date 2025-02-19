@@ -29,7 +29,7 @@ def delete_hauler(pk):
         # Write the SQL query to get the information you want
         db_cursor.execute("""
         DELETE FROM Hauler WHERE id = ?
-        """, (pk,)
+        """, (pk)
         )
         number_of_rows_deleted = db_cursor.rowcount
 
@@ -83,3 +83,20 @@ def retrieve_hauler(pk):
         serialized_hauler = json.dumps(dict(query_results))
 
     return serialized_hauler
+
+def add_hauler(hauler_data):
+    """adds new hauler to database"""
+    with sqlite3.connect("./shipping.db") as conn:
+        db_cursor = conn.cursor()
+        try:
+            db_cursor.execute(
+                """
+                INSERT INTO Hauler (name,dock_id)
+                VALUES (?, ?)
+                """,
+                (hauler_data['name'], hauler_data['dock_id'])
+            )
+            return True
+        except sqlite3.Error as e:
+            print(f"An error occurred: {e}")
+            return False
