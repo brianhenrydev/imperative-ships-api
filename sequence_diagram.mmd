@@ -3,86 +3,76 @@ sequenceDiagram
     participant Client
     participant JSONServer
     participant Database
-    
+    note over Client,JSONServer,Database: API Endpoints
     group GET ship/ships
-    Client->>JSONServer: GET /ships
-    JSONServer->>Database: Retrieve ships
-    Database-->>JSONServer: Return ships
-    JSONServer-->>Client: Return ships
-    
-    Client->>JSONServer: GET /ships/:id
-    JSONServer->>Database: Retrieve ships/:id
-    Database-->>JSONServer: Return ships/:id
-    JSONServer-->>Client: Return ships/:id
+        Client->>JSONServer: GET /ships
+        JSONServer->>Database: Retrieve ships
+        Database-->>JSONServer: Return ships
+        JSONServer-->>Client: Return ships
+        Client->>JSONServer: GET /ships/:id
+        JSONServer->>Database: Retrieve ships/:id
+        Database-->>JSONServer: Return ships/:id
+        JSONServer-->>Client: Return ships/:id
     end
-    
     group GET hauler/haulers
-    Client->>JSONServer: GET /haulers
-    JSONServer->>Database: Retrieve haulers
-    Database-->>JSONServer: Return haulers
-    JSONServer-->>Client: Return haulers
-    
-    Client->>JSONServer: GET /haulers/:id
-    JSONServer->>Database: Retrieve haulers/:id
-    Database-->>JSONServer: Return haulers/:id
-    JSONServer-->>Client: Return haulers/:id
+        Client->>JSONServer: GET /haulers
+        JSONServer->>Database: Retrieve haulers
+        Database-->>JSONServer: Return haulers
+        JSONServer-->>Client: Return haulers
+        Client->>JSONServer: GET /haulers/:id
+        JSONServer->>Database: Retrieve haulers/:id
+        Database-->>JSONServer: Return haulers/:id
+        JSONServer-->>Client: Return haulers/:id
     end
     group GET dock/docks
-    Client->>JSONServer: GET /docks
-    JSONServer->>Database: Retrieve docks
-    Database-->>JSONServer: Return docks
-    JSONServer-->>Client: Return docks
-    Client->>JSONServer: GET /docks/:id
-    JSONServer->>Database: Retrieve docks/:id
-    Database-->>JSONServer: Return docks/:id
-    JSONServer-->>Client: Return docks/:id
+        Client->>JSONServer: GET /docks
+        JSONServer->>Database: Retrieve docks
+        Database-->>JSONServer: Return docks
+        JSONServer-->>Client: Return docks
+        Client->>JSONServer: GET /docks/:id
+        JSONServer->>Database: Retrieve docks/:id
+        Database-->>JSONServer: Return docks/:id
+        JSONServer-->>Client: Return docks/:id
     end
     group PUT
-    Client->>JSONServer: PUT /ships/:id
-    JSONServer->>Database: Update ship
-    Database-->>JSONServer: Return update result
-    JSONServer-->>Client: Return update result
-
-    Client->>JSONServer: PUT /haulers/:id
-    JSONServer->>Database: Update hauler
-    Database-->>JSONServer: Return update result
-    JSONServer-->>Client: Return update result
-
-    Client->>JSONServer: PUT /docks/:id
-    JSONServer->>Database: Update dock
-    Database-->>JSONServer: Return update result
-    JSONServer-->>Client: Return update result
+        Client->>JSONServer: PUT /ships/:id
+        JSONServer->>Database: Update ship
+        Database-->>JSONServer: Return update result
+        JSONServer-->>Client: Return update result
+        Client->>JSONServer: PUT /haulers/:id
+        JSONServer->>Database: Update hauler
+        Database-->>JSONServer: Return update result
+        JSONServer-->>Client: Return update result
+        Client->>JSONServer: PUT /docks/:id
+        JSONServer->>Database: Update dock
+        Database-->>JSONServer: Return update result
+        JSONServer-->>Client: Return update result
     end
     group DELETE
-    Client->>JSONServer: DELETE /ships/:id
-    JSONServer->>Database: Delete ship
-    Database-->>JSONServer: Return delete result
-    JSONServer-->>Client: Return delete result
-
-    Client->>JSONServer: DELETE /haulers/:id
-    JSONServer->>Database: Delete hauler
-    Database-->>JSONServer: Return delete result
-    JSONServer-->>Client: Return delete result
-
-    Client->>JSONServer: DELETE /docks/:id
-    JSONServer->>Database: Delete dock
-    Database-->>JSONServer: Return delete result
-    JSONServer-->>Client: Return delete result
+        Client->>JSONServer: DELETE /ships/:id
+        JSONServer->>Database: Delete ship
+        Database-->>JSONServer: Return delete result
+        JSONServer-->>Client: Return delete result
+        Client->>JSONServer: DELETE /haulers/:id
+        JSONServer->>Database: Delete hauler
+        Database-->>JSONServer: Return delete result
+        JSONServer-->>Client: Return delete result
+        Client->>JSONServer: DELETE /docks/:id
+        JSONServer->>Database: Delete dock
+        Database-->>JSONServer: Return delete result
+        JSONServer-->>Client: Return delete result
     end
     group POST
-    Client->>JSONServer: POST /ships
-    JSONServer->>Database: Create ship
-    Database-->>JSONServer: Return create result
-    JSONServer-->>Client: Return create result
-
-    Client->>JSONServer: POST /haulers
-    JSONServer->>Database: Create hauler
-    Database-->>JSONServer: Return create result
-    JSONServer-->>Client: Return create result
-
-    Client->>JSONServer: POST /docks
-    JSONServer->>Database: Create dock
-    Database-->>JSONServer: Return create result
-    JSONServer-->>Client: Return create result
+        Client->>JSONServer: POST /ships
+        JSONServer->>Database: Create ship
+        Database-->>JSONServer: Return create result
+        JSONServer-->>Client: Return create result
+        Client->>JSONServer: POST /haulers
+        JSONServer->>Database: Create hauler
+        Database-->>JSONServer: Return create result
+        JSONServer-->>Client: Return create result
+        Client->>JSONServer: POST /docks
+        JSONServer->>Database: Create dock
+        Database-->>JSONServer: Return create result
+        JSONServer-->>Client: Return create result
     end
-
