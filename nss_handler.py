@@ -29,15 +29,17 @@ class HandleRequests(BaseHTTPRequestHandler):
             "pk": 0
         }
 
-        if parsed_url.query:
+        if not parsed_url.query:
+            pass
+        else:
             query = parse_qs(parsed_url.query)
             url_dictionary["query_params"] = query
 
-        try:
-            pk = int(path_params[2])
-            url_dictionary["pk"] = pk
-        except (IndexError, ValueError):
-            pass
+            try:
+                pk = int(path_params[2])
+                url_dictionary["pk"] = pk
+            except (IndexError, ValueError):
+                pass
 
         return url_dictionary
 

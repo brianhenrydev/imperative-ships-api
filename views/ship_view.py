@@ -43,7 +43,6 @@ def list_ships(url):
 
         if "_expand" in url["query_params"]:
         # Write the SQL query to get the information you want
-            print("_expand query included")
             db_cursor.execute("""
             SELECT
                 s.id,
@@ -75,10 +74,9 @@ def list_ships(url):
     
             serialized_ships = json.dumps(ships)
             return serialized_ships
+
         else:
 
-            print("_expand not included")
-        # Write the SQL query to get the information you want
             db_cursor.execute("""
             SELECT
                 s.id,
