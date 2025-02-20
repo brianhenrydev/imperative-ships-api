@@ -9,7 +9,7 @@ banner = r"""
 \__ \  __/ |   \ V /  __/ |    | |  | |_| | | | | | | | | | | | (_| |_ _ _ 
 |___/\___|_|    \_/ \___|_|    |_|   \__,_|_| |_|_| |_|_|_| |_|\__, (_|_|_)
                                                                |___/       
-Probably... Maybe (TM)
+Probably... Maybe?
 """
 
 # Add your imports below this line
@@ -60,7 +60,6 @@ class JSONServer(HandleRequests):
         # Parse the URL and get the primary key
         url = self.parse_url(self.path)
         pk = url["pk"]
-
         # Get the request body JSON for the new data
         content_len = int(self.headers.get('content-length', 0))
         request_body = self.rfile.read(content_len)
