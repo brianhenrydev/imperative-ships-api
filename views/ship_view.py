@@ -67,7 +67,7 @@ def list_ships(url):
                 }
                 ship = {
                     "id": row['id'],
-                    "name": row['id'],
+                    "name": row['name'],
                     "hauler_id": row['hauler_id'],
                     "hauler": hauler,
                 }

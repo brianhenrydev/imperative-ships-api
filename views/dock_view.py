@@ -41,6 +41,9 @@ def list_docks(url):
 
         # Write the SQL query to get the information you want
     if "_expand" in url["query_params"]:
+        return ("Nothing to expand")
+    else:
+        
           db_cursor.execute("""
           SELECT
               d.id,

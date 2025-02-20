@@ -2,7 +2,7 @@ import json
 from http.server import HTTPServer
 from nss_handler import HandleRequests, status
 
-motd =  """
+banner = r"""
  ___  ___ _ ____   _____ _ __   _ __ _   _ _ __  _ __ (_)_ __   __ _       
 / __|/ _ \ '__\ \ / / _ \ '__| | '__| | | | '_ \| '_ \| | '_ \ / _` |      
 \__ \  __/ |   \ V /  __/ |    | |  | |_| | | | | | | | | | | | (_| |_ _ _ 
@@ -38,7 +38,7 @@ class JSONServer(HandleRequests):
                 response_body = retrieve_hauler(url["pk"])
                 return self.response(response_body, status.HTTP_200_SUCCESS.value)
 
-            response_body = list_haulers()
+            response_body = list_haulers(url)
             return self.response(response_body, status.HTTP_200_SUCCESS.value)
 
         elif url["requested_resource"] == "ships":
@@ -160,5 +160,5 @@ def main():
     HTTPServer((host, port), JSONServer).serve_forever()
 
 if __name__ == "__main__":
-    print("SERVER RUNNING...")
+    print(banner)
     main()
