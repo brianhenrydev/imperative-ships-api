@@ -3,11 +3,13 @@ from http.server import HTTPServer
 from nss_handler import HandleRequests, status
 
 banner = r"""
+                                                       _ 
  ___  ___ _ ____   _____ _ __   _ __ _   _ _ __  _ __ (_)_ __   __ _       
 / __|/ _ \ '__\ \ / / _ \ '__| | '__| | | | '_ \| '_ \| | '_ \ / _` |      
 \__ \  __/ |   \ V /  __/ |    | |  | |_| | | | | | | | | | | | (_| |_ _ _ 
 |___/\___|_|    \_/ \___|_|    |_|   \__,_|_| |_|_| |_|_|_| |_|\__, (_|_|_)
                                                                |___/       
+Probably... Maybe (TM)
 """
 
 # Add your imports below this line
@@ -115,7 +117,7 @@ class JSONServer(HandleRequests):
                 return self.response("Requested resource not found", status.HTTP_404_CLIENT_ERROR_RESOURCE_NOT_FOUND.value)
 
         else:
-            return self.response("Not found", status.HTTP_404_CLIENT_ERROR_RESOURCE_NOT_FOUND.value)
+            return self.response("Include valid param for resource id", status.HTTP_404_CLIENT_ERROR_RESOURCE_NOT_FOUND.value)
 
     def do_POST(self):
         "Handle POST requests from a client"
